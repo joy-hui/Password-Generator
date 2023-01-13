@@ -90,15 +90,38 @@ var upperCasedCharacters = [
 
 // Function to prompt user for password options
 function getPasswordOptions() {
-  // The main purpose of this method is to gather user input to determine
-  // what will be included in the generated password.
-  // Questions to ask users:
   // - How many characters would you like in the password? (Prompt or Confirm?)
-  
+  var number = prompt("how many characters do you want?(between 10 and 64)");
+
   // - Are Uppercase letters allowed? (Prompt or Confirm?)
+  var upp = confirm("Are Uppercase letters allowed?");
   // - Are Lowercase letters allowed? (Prompt or Confirm?)
+  var low = confirm("Are Lowercase letters allowed?");
   // - Are Numeric characters allowed? (Prompt or Confirm?)
+  var Numeric = confirm("Are Numeric characters allowed?");
   // - Are special characters allowed? (Prompt or Confirm?)
+  var special = confirm("Are special characters allowed?");
+
+  var passwordOptions = {
+    length: length,
+    hasSpecialCharacters: 1,
+    hasNumericCharacters: 1,
+    hasLowerCasedCharacters: 1,
+    hasUpperCasedCharacters: 1,
+  };
+  // console.log(passwordOptions.length);
+  // console.log(passwordOptions.hasLowerCasedCharacters);
+
+  passwordOptions.length = number;
+  passwordOptions.hasLowerCasedCharacters = low;
+  passwordOptions.hasNumericCharacters = Numeric;
+  passwordOptions.hasSpecialCharacters = special;
+  passwordOptions.hasUpperCasedCharacters = upp;
+
+  //return passwordOptions;
+
+  console.log(passwordOptions);
+
   // Other Requirements:
   // - code should validate for each input:
   //     - Many times users will try to input incorrect input to try and break the app. What if a user inserts
@@ -113,16 +136,22 @@ function getRandom(arr) {
   // accepts an array as input
   // how can we generate random numbers and use them to grab content from the arrays ?
   //  where should this function be called within the file?
+  var number = Math.floor(Math.random() * arr.length);
+  return number;
 }
 
 // Function to generate password with user input
-function generatePassword() {}
+function generatePassword() {
+  getPasswordOptions();
+}
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
+
+  
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
