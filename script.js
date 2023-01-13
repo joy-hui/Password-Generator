@@ -94,6 +94,7 @@ function getPasswordOptions() {
   // what will be included in the generated password.
   // Questions to ask users:
   // - How many characters would you like in the password? (Prompt or Confirm?)
+  
   // - Are Uppercase letters allowed? (Prompt or Confirm?)
   // - Are Lowercase letters allowed? (Prompt or Confirm?)
   // - Are Numeric characters allowed? (Prompt or Confirm?)
