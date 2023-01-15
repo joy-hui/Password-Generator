@@ -92,7 +92,9 @@ var upperCasedCharacters = [
 function getPasswordOptions() {
   // - How many characters would you like in the password? (Prompt or Confirm?)
   var number = prompt("how many characters do you want?(between 10 and 64)");
-
+  if (number <= 9 || number >= 65) {
+    number = prompt("how many characters do you want?(between 10 and 64)");
+  }
   // - Are Uppercase letters allowed? (Prompt or Confirm?)
   var upp = confirm("Are Uppercase letters allowed?");
   // - Are Lowercase letters allowed? (Prompt or Confirm?)
@@ -147,9 +149,7 @@ function generatePassword() {
   var passwordlow = total.hasLowerCasedCharacters;
   var passwordnum = total.hasNumericCharacters;
   var passwordspe = total.hasSpecialCharacters;
-
-  //console.log(total);
-
+ // console.log(total);
   var randompassword = "";
   var array3 = [...specialCharacters, ...numericCharacters];
   var array4 = [...lowerCasedCharacters, ...upperCasedCharacters];
@@ -160,16 +160,76 @@ function generatePassword() {
   // console.log(array5[a]);
   //var passwordlength = getPasswordOptions();
   //console.log(passwordlength);
-  if (passwordlength > 9 && passwordlength < 65) {
-    for (j = 0; j < passwordlength; j++) {
-      var index = getRandom(array5);
-      //var randomNumber = Math.floor(Math.random() * array5.length);
-      randompassword += array5[index];
+  if (passwordlength > 9 && passwordlength < 65) {   
+  // only choose one kinds of characters
+    if (
+      passwordupp == true &&
+      passwordlow == false &&
+      passwordnum == false &&
+      passwordspe == false
+    ) {
+      for (j = 0; j < passwordlength; j++) {
+        var index = getRandom(upperCasedCharacters);
+        //var randomNumber = Math.floor(Math.random() * array5.length);
+        randompassword += upperCasedCharacters[index];
+      }
+      return randompassword;
+    } else if (
+      passwordupp == false &&
+      passwordlow == true &&
+      passwordnum == false &&
+      passwordspe == false
+    ) {
+      for (j = 0; j < passwordlength; j++) {
+        var index = getRandom(lowerCasedCharacters);
+        //var randomNumber = Math.floor(Math.random() * array5.length);
+        randompassword += lowerCasedCharacters[index];
+      }
+      return randompassword;
+    }  else if (
+      passwordupp == false &&
+      passwordlow == false &&
+      passwordnum == true &&
+      passwordspe == false
+    ) {
+      for (j = 0; j < passwordlength; j++) {
+        var index = getRandom(numericCharacters);
+        //var randomNumber = Math.floor(Math.random() * array5.length);
+        randompassword += numericCharacters[index];
+      }
+      return randompassword;
+    } else if (
+      passwordupp == false &&
+      passwordlow == false &&
+      passwordnum == false &&
+      passwordspe == true
+    ) {
+      for (j = 0; j < passwordlength; j++) {
+        var index = getRandom(specialCharacters);
+        //var randomNumber = Math.floor(Math.random() * array5.length);
+        randompassword += specialCharacters[index];
+      }
+      return randompassword;
+    } 
+  
+  // all choose are false, let user choose again  
+    else if(passwordupp == false &&
+      passwordlow == false &&
+      passwordnum == false &&
+      passwordspe == false
+      ){
+      alert("Plesae select at least one kind of characters");
+      return false;
     }
-    return randompassword;
-  } else {
-    alert("Plesae input right number(between 10 and 64)");
-    return false;
+    // for (j = 0; j < passwordlength; j++) {
+    //   var index = getRandom(array5);
+    //   //var randomNumber = Math.floor(Math.random() * array5.length);
+    //   randompassword += array5[index];
+    // }
+    // return randompassword;
+  // } else {
+  //   alert("Plesae input right number(between 10 and 64)");
+  //   return false;
   }
 }
 
