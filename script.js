@@ -103,24 +103,23 @@ function getPasswordOptions() {
   var special = confirm("Are special characters allowed?");
 
   var passwordOptions = {
-    length: length,
-    hasSpecialCharacters: 1,
-    hasNumericCharacters: 1,
-    hasLowerCasedCharacters: 1,
-    hasUpperCasedCharacters: 1,
+    length: 1,
+    hasSpecialCharacters: true,
+    hasNumericCharacters: true,
+    hasLowerCasedCharacters: true,
+    hasUpperCasedCharacters: true,
   };
   // console.log(passwordOptions.length);
   // console.log(passwordOptions.hasLowerCasedCharacters);
-
   passwordOptions.length = number;
   passwordOptions.hasLowerCasedCharacters = low;
   passwordOptions.hasNumericCharacters = Numeric;
   passwordOptions.hasSpecialCharacters = special;
   passwordOptions.hasUpperCasedCharacters = upp;
 
-  //return passwordOptions;
+  return passwordOptions;
 
-  console.log(passwordOptions);
+  //console.log(passwordOptions);
 
   // Other Requirements:
   // - code should validate for each input:
@@ -142,7 +141,36 @@ function getRandom(arr) {
 
 // Function to generate password with user input
 function generatePassword() {
-  getPasswordOptions();
+  var total = getPasswordOptions();
+  var passwordlength = total.length;
+  var passwordupp = total.hasUpperCasedCharacters;
+  var passwordlow = total.hasLowerCasedCharacters;
+  var passwordnum = total.hasNumericCharacters;
+  var passwordspe = total.hasSpecialCharacters;
+
+  //console.log(total);
+
+  var randompassword = "";
+  var array3 = [...specialCharacters, ...numericCharacters];
+  var array4 = [...lowerCasedCharacters, ...upperCasedCharacters];
+  var array5 = [...array3, ...array4];
+  // console.log(array5);
+  // var a = getRandom(array5);
+  // console.log(a);
+  // console.log(array5[a]);
+  //var passwordlength = getPasswordOptions();
+  //console.log(passwordlength);
+  if (passwordlength > 9 && passwordlength < 65) {
+    for (j = 0; j < passwordlength; j++) {
+      var index = getRandom(array5);
+      //var randomNumber = Math.floor(Math.random() * array5.length);
+      randompassword += array5[index];
+    }
+    return randompassword;
+  } else {
+    alert("Plesae input right number(between 10 and 64)");
+    return false;
+  }
 }
 
 // Get references to the #generate element
@@ -150,8 +178,7 @@ var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
-
-  
+  var password = "";
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
