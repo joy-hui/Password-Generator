@@ -161,6 +161,10 @@ function generatePassword() {
   var lownumarray = lowerCasedCharacters.concat(numericCharacters);
   var lowspearray = lowerCasedCharacters.concat(specialCharacters);
   var numspearray = numericCharacters.concat(specialCharacters);
+  var upplownumarray=upperCasedCharacters.concat(lowerCasedCharacters,numericCharacters);
+  var upplowspearray=upperCasedCharacters.concat(lowerCasedCharacters,specialCharacters);
+  var uppnumspearry=upperCasedCharacters.concat(numericCharacters,specialCharacters);
+  var lownumspearray=lowerCasedCharacters.concat(numericCharacters,specialCharacters);
   // console.log(array5);
   // var a = getRandom(array5);
   // console.log(a);
@@ -294,6 +298,58 @@ function generatePassword() {
       return randompassword;
     }
     //  choose three kinds of characters
+  else if (
+    passwordupp == true &&
+    passwordlow == true &&
+    passwordnum == true &&
+    passwordspe == false
+  ) {
+    for (j = 0; j < passwordlength; j++) {
+      var index = getRandom(upplownumarray);
+      //var randomNumber = Math.floor(Math.random() * array5.length);
+      randompassword += upplownumarray[index];
+    }
+    return randompassword;
+  }
+  else if (
+    passwordupp == true &&
+    passwordlow == true &&
+    passwordnum == false &&
+    passwordspe == true
+  ) {
+    for (j = 0; j < passwordlength; j++) {
+      var index = getRandom(upplowspearray);
+      //var randomNumber = Math.floor(Math.random() * array5.length);
+      randompassword += upplowspearray[index];
+    }
+    return randompassword;
+  }
+  else if (
+    passwordupp == true &&
+    passwordlow == false &&
+    passwordnum == true &&
+    passwordspe == true
+  ) {
+    for (j = 0; j < passwordlength; j++) {
+      var index = getRandom(uppnumspearry);
+      //var randomNumber = Math.floor(Math.random() * array5.length);
+      randompassword += uppnumspearry[index];
+    }
+    return randompassword;
+  }
+  else if (
+    passwordupp == true &&
+    passwordlow == false &&
+    passwordnum == true &&
+    passwordspe == true
+  ) {
+    for (j = 0; j < passwordlength; j++) {
+      var index = getRandom(lownumspearray);
+      //var randomNumber = Math.floor(Math.random() * array5.length);
+      randompassword += lownumspearray[index];
+    }
+    return randompassword;
+  }
 
     // choose four kinds of characters
     else if (
