@@ -17,8 +17,12 @@
 * Once prompts are answered then the password should be generated
  
 ## There are some screenshots
-![image of screenshot2](code.png)
-![image of screenshot1](result.png)
+![image of screenshot2](1.png)
+![image of screenshot1](2.png)
+![image of screenshot3](3.png)
+![image of screenshot4](4.png)
+![image of screenshot5](5.png)
+
 
 ## This is the link
 *  https://joy-hui.github.io/Console-Finances/
