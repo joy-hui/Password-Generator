@@ -93,7 +93,7 @@ function getPasswordOptions() {
   // - How many characters would you like in the password? (Prompt or Confirm?)
   var number = prompt("how many characters do you want?(between 10 and 64)");
   if (number <= 9 || number >= 65) {
-    number = prompt("how many characters do you want?(between 10 and 64)");
+    number = prompt("Please input the right number of password?(between 10 and 64)");
   }
   // - Are Uppercase letters allowed? (Prompt or Confirm?)
   var upp = confirm("Are Uppercase letters allowed?");
