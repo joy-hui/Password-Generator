@@ -25,7 +25,7 @@
 
 
 ## This is the link
-*  https://joy-hui.github.io/Console-Finances/
+*  https://joy-hui.github.io/Password-Generator/
 
 
 
