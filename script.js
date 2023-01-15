@@ -338,8 +338,8 @@ function generatePassword() {
     return randompassword;
   }
   else if (
-    passwordupp == true &&
-    passwordlow == false &&
+    passwordupp == false &&
+    passwordlow == true &&
     passwordnum == true &&
     passwordspe == true
   ) {
