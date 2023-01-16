@@ -374,7 +374,7 @@ function generatePassword() {
       passwordspe == false
     ) {
       alert("Plesae select at least one kind of characters");
-      return false;
+      return "";
     }
   }
 }
